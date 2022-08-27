@@ -4,13 +4,16 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 interface Args {
-    ip: string,
-    ssl: boolean,
-    port: number,
-    token: string,
+    ip: string
+    ssl: boolean
+    port: number
+    token: string
     maxBots: number
 }
 
+/**
+ * Passable arguments to the node CLI.
+ */
 const argv = (yargs(hideBin(process.argv)).options({
     ip: { type: `string`, default: `127.0.0.1` },
     ssl: { type: `boolean`, default: false },
@@ -19,6 +22,9 @@ const argv = (yargs(hideBin(process.argv)).options({
     maxBots: { type: `number`, default: 50 }
 }).argv as Args);
 
+/**
+ * Configuration for the program.
+ */
 const config = {
     name,
     version,
